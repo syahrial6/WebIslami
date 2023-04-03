@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Arabic Font';
+    src: url('path/to/your/font/ArabicFont.ttf');
+  }
+  
+  body {
+    font-family: 'Arabic Font', sans-serif;
+  }
