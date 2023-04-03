@@ -12,7 +12,6 @@ import {
     useColorMode,
 } from '@chakra-ui/react';
 import { FaMoon, FaSun } from 'react-icons/fa';
-import Artikel from './Artikel';
 import Shalat from './Shalat';
 import { Link } from 'react-router-dom';
 
