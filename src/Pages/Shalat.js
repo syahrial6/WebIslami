@@ -71,14 +71,16 @@ function Shalat() {
                     placeholder="Masukkan Wilayah"
                     onChange={(e) => setQuery(parseInt(e.value))}
                 />
-                <Flex>
+                <Flex
+                    flexDirection={{ base: "column", md: "row" }}
+                >
                     {Object.keys(waktu).map((key, index) => (
-
                         <Box
                             key={key}
                             flex="1"
                             textAlign="center"
                             borderLeftWidth={index > 0 ? "1px" : "0"}
+                            mt={{ base: index > 0 ? "4" : "0", md: "0" }}
                         >
                             <Text fontSize="sm" fontWeight="bold">{key}</Text>
                             <Text fontSize="lg" fontWeight="bold" mt="1">
