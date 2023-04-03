@@ -17,24 +17,7 @@ import Shalat from './Shalat';
 import { Link } from 'react-router-dom';
 
 function Home() {
-    const cards = [
-        {
-            image: 'https://images.unsplash.com/photo-1571909552531-1601eaec8f79?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80',
-            title: 'Card 1',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        },
-        {
-            image: 'https://images.unsplash.com/photo-1571909552531-1601eaec8f79?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80',
-            title: 'Card 2',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        },
-        {
-            image: 'https://images.unsplash.com/photo-1571909552531-1601eaec8f79?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80',
-            title: 'Card 3',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        },
-    ];
-    
+   
 
     const { colorMode, toggleColorMode } = useColorMode();
     return (
@@ -134,7 +117,7 @@ function Home() {
                         <Heading as="h2" size="md" mb={4}>
                             Artikel Islami (Untuk Artikel Belum Ada)
                         </Heading>
-                        <Artikel cards={cards} />
+                    
                         <Text>
                             Dapatkan pengetahuan dan pemahaman yang lebih mendalam tentang Islam
                         </Text>
