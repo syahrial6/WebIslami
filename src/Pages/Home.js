@@ -12,28 +12,11 @@ import {
     useColorMode,
 } from '@chakra-ui/react';
 import { FaMoon, FaSun } from 'react-icons/fa';
-import Artikel from './Artikel';
 import Shalat from './Shalat';
 import { Link } from 'react-router-dom';
 
 function Home() {
-    const cards = [
-        {
-            image: 'https://source.unsplash.com/random/800x600',
-            title: 'Card 1',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        },
-        {
-            image: 'https://source.unsplash.com/random/800x600',
-            title: 'Card 2',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        },
-        {
-            image: 'https://source.unsplash.com/random/800x600',
-            title: 'Card 3',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-        },
-    ];
+    
 
     const { colorMode, toggleColorMode } = useColorMode();
     return (
@@ -133,7 +116,7 @@ function Home() {
                         <Heading as="h2" size="md" mb={4}>
                             Artikel Islami (Untuk Artikel Belum Ada)
                         </Heading>
-                        <Artikel cards={cards} />
+
                         <Text>
                             Dapatkan pengetahuan dan pemahaman yang lebih mendalam tentang Islam
                         </Text>

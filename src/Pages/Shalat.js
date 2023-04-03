@@ -5,7 +5,7 @@ import axios from 'axios';
 import Moment from 'react-moment';
 import moment from 'moment';
 import ClipLoader from "react-spinners/ClipLoader";
-import { Box, Flex, Text,useColorMode} from "@chakra-ui/react";
+import { Box, Flex, Text, useColorMode } from "@chakra-ui/react";
 
 
 function Shalat() {
@@ -71,14 +71,16 @@ function Shalat() {
                     placeholder="Masukkan Wilayah"
                     onChange={(e) => setQuery(parseInt(e.value))}
                 />
-                <Flex>
+                <Flex
+                    flexDirection={{ base: "column", md: "row" }}
+                >
                     {Object.keys(waktu).map((key, index) => (
-
                         <Box
                             key={key}
                             flex="1"
                             textAlign="center"
                             borderLeftWidth={index > 0 ? "1px" : "0"}
+                            mt={{ base: index > 0 ? "4" : "0", md: "0" }}
                         >
                             <Text fontSize="sm" fontWeight="bold">{key}</Text>
                             <Text fontSize="lg" fontWeight="bold" mt="1">
@@ -87,6 +89,7 @@ function Shalat() {
                         </Box>
                     ))}
                 </Flex>
+
             </Box>
         </div>
     );
