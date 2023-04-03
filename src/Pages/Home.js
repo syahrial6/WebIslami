@@ -17,6 +17,23 @@ import Shalat from './Shalat';
 import { Link } from 'react-router-dom';
 
 function Home() {
+    const cards = [
+        {
+            image: '#',
+            title: 'Card 1',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        },
+        {
+            image: '#',
+            title: 'Card 2',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        },
+        {
+            image: '#',
+            title: 'Card 3',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        },
+    ];
     
 
     const { colorMode, toggleColorMode } = useColorMode();
