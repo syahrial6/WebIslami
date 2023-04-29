@@ -23,6 +23,7 @@ function Hadits() {
     const response = await axios.get(`https://hadis-api-id.vercel.app/hadith/abu-dawud?page=1&limit=20`)
     setHadits(response.data.items)
     setTotal(response.data.total)
+    console.log(response.data)
   }
 
   const getHaditstunggal = async () => {

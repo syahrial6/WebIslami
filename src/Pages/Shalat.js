@@ -1,98 +1,51 @@
-import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import Select from 'react-select'
 import axios from 'axios';
-import Moment from 'react-moment';
-import moment from 'moment';
-import ClipLoader from "react-spinners/ClipLoader";
-import { Box, Flex, Text, useColorMode } from "@chakra-ui/react";
-
+import React, { useEffect, useState } from 'react'
 
 function Shalat() {
-    const [kota, setKota] = useState([]);
-    const [query, setQuery] = useState(680)
-    const [waktu, setWaktu] = useState([])
-    const [tanggal, setTanggal] = useState(moment().format("YYYY-MM-DD"))
-    const [loading, setLoading] = useState(true)
-    const { colorMode, toggleColorMode } = useColorMode();
+    const [data,setData] = useState([{
+        nama:"Muhammad Syahrial",
+        ttl:"6 Juni 2001",
+        sekolah:"Untan"
+    },
+    {
+        nama:"Ahmad Syahrial",
+        ttl:"6 Juni 2001",
+        sekolah:"Untan"
+    },
+    {
+        nama:"Muiku Syahrial",
+        ttl:"6 Juni 2001",
+        sekolah:"Untan"
+    },
+    {
+        nama:"React Syahrial",
+        ttl:"6 Juni 2001",
+        sekolah:"Untan"
+    },
+]);
+    const [searchTerm, setSearchTerm] = useState('');
 
 
-    useEffect(() => {
-        getWaktu()
-        getKota()
-
-
-    }, [query])
-
-    const getKota = async () => {
-        const response = await axios.get("https://api.banghasan.com/sholat/format/json/kota")
-        const result = response.data.kota.map(data => {
-            return {
-                value: data.id,
-                label: data.nama
-            }
-        })
-        setKota(result)
-    }
-
-    const getWaktu = async () => {
-        const response = await axios.get(`https://api.banghasan.com/sholat/format/json/jadwal/kota/${query}/tanggal/${tanggal}`)
-        setWaktu(response.data.jadwal.data)
-        setLoading(false)
-    }
-
-    if (loading) {
-        return (
-            <Container>
-                <Row className="justify-content-center align-item-center">
-
-                    <ClipLoader
-                        className='mt-5'
-                        color="#36d7b7"
-                        loading={loading}
-                        size={150}
-                        aria-label="Loading Spinner"
-                        data-testid="loader"
-                    />
-                    <h3 className='text-center'>Loading....</h3>
-
-                </Row>
-            </Container>
-
-        )
-    }
-    return (
-        <div className="App">
-            <Box p="4" >
-                <h1 className="text-center my-5">Jadwal Shalat</h1>
-                <Select className='mb-4'
-                    defaultValue={{ label: "Bandung Barat", value: { query } }}
-                    options={kota}
-                    placeholder="Masukkan Wilayah"
-                    onChange={(e) => setQuery(parseInt(e.value))}
-                />
-                <Flex
-                    flexDirection={{ base: "column", md: "row" }}
-                >
-                    {Object.keys(waktu).map((key, index) => (
-                        <Box
-                            key={key}
-                            flex="1"
-                            textAlign="center"
-                            borderLeftWidth={index > 0 ? "1px" : "0"}
-                            mt={{ base: index > 0 ? "4" : "0", md: "0" }}
-                        >
-                            <Text fontSize="sm" fontWeight="bold">{key}</Text>
-                            <Text fontSize="lg" fontWeight="bold" mt="1">
-                                {waktu[key]}
-                            </Text>
-                        </Box>
-                    ))}
-                </Flex>
-
-            </Box>
-        </div>
+      const filteredData = data.filter((item) =>
+      item.nama.toLowerCase().includes(searchTerm.toLowerCase())
     );
+  
+  return (
+    <div>
+      <input type="text" value={searchTerm} onChange={(e)=> setSearchTerm(e.target.value)} />
+      <audio controls>
+  <source src="https://cdn.islamic.network/quran/audio/128/ar.alafasy/1.mp3" type="audio/mpeg"/>
+  <source src="https://cdn.islamic.network/quran/audio/128/ar.alafasy/1.mp3" type="audio/ogg"/>
+  Your browser does not support the audio element.
+</audio>
+
+      <ul>
+        {filteredData.map((item) => (
+          <li key={item.id}>{item.nama}</li>
+        ))}
+      </ul>
+    </div>
+  )
 }
 
-export default Shalat;
+export default Shalat
